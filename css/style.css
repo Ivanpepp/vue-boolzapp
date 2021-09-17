@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    color: #b1b1b1;
+}
+a:hover{
+    color: #8e8d8d;
+}
+ul{
+    padding: 0;
+}
+ul > li{
+    list-style-type: none;
+    padding-left: 15px;
+}
+.fas:hover{
+    cursor: pointer;
+}
+.my_box{
+
+    height: 80px;
+    border-right: 1px solid #d2d2d2;
+}
+.my_box-search{
+    height: 55px;
+    border-right: 1px solid #d2d2d2;
+}
+.user-logo{
+    border-radius: 50%;
+    padding: 10px;
+    width: 70px;
+}
+.cta{
+    color: #b1b1b1;
+    font-size: 1.2rem;
+}
+.under-text{
+    color: #000000;
+    font-size: 0.8rem;
+}
+.my_bg-gray{
+    background-color: #eaeaea;
+}
+.fa-bell-slash{
+    background-color: white;
+    color: #8edafc;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+#bg-header{
+    height: 15vh;
+    background-color: #009688;
+
+}
+#bg-main{
+    height: 85vh;
+    background-color: #dcdbd2;
+}
+#body-bg{
+    position: relative;
+    height: 100vh;
+}
+#app{
+    height: 90vh;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 1000px;
+}
+
+#app-header{
+    background-color: #eaeaea;
+}
+#notifications{
+    background-color: #8edafc;
+    padding: 15px;
+}
+#input-search{
+    color: lightgrey;
+    font-size: 0.8rem;
+    padding:10px;   
+    width: 90%;
+    border: none;    
+}
+
+#search-icon{
+    background-color: transparent;
+    border: none;
+    color: lightgrey;
+}
