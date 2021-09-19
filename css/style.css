@@ -16,17 +16,24 @@ ul > li{
     list-style-type: none;
     padding-left: 15px;
 }
+ul > li.my_box:hover{
+    background-color: #e9ebeb;
+    cursor: pointer;
+}
+.active{
+    background-color: #e9ebeb;
+}
+.far:hover,
 .fas:hover{
     cursor: pointer;
 }
 .my_box{
-
-    height: 80px;
-    border-right: 1px solid #d2d2d2;
+    height: 80px;  
 }
 .my_box-search{
     height: 55px;
     border-right: 1px solid #d2d2d2;
+    background-color: white;
 }
 .user-logo{
     border-radius: 50%;
@@ -64,14 +71,19 @@ ul > li{
     position: relative;
     height: 100vh;
 }
-#app{
-    height: 90vh;
-    background-color: black;
+#waz-wrapper{
+    height: 1000px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 1000px;
+}
+#user-side{
+    height: 100%;
+    background-color: white;
+}
+#chat-side{
+    height: 100%;
 }
 
 #app-header{
@@ -93,4 +105,20 @@ ul > li{
     background-color: transparent;
     border: none;
     color: lightgrey;
+}
+
+#chat{
+    height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    overflow: auto;
+}
+#bottom-chat{
+    height: 60px;
+    background-color: #f3eeea;
+   
+}
+#input-chat{
+    border: none;
 }
