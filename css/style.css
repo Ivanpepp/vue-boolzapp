@@ -115,7 +115,7 @@ ul > li.my_box:hover{
     padding: 15px;
 }
 #input-search{
-    color: lightgrey;
+    color: rgb(127, 127, 127);
     font-size: 0.8rem;
     padding:10px;   
     width: 90%;

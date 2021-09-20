@@ -90,7 +90,7 @@ let app = new Vue({
         ],
         indexContact: 0,
         newMessage: '',
-        
+        search: ''
     },
     methods : {
 
@@ -117,22 +117,6 @@ let app = new Vue({
             s = s.slice(0, piece) + '...' ;
             return s;
         },
-        myFunction: function() {
-            let input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById("input-search");
-            filter = input.value.toUpperCase();
-            ul = document.getElementById("my-ul");
-            li = ul.getElementsByTagName("li");
-            for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("div")[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-        },
        
         messageAdder :  function(){
             let d = new Date();
@@ -156,17 +140,24 @@ let app = new Vue({
             
             let  contacts = this.contacts;
             let  indexContact = this.indexContact;
-            let    messages = this.messages;
-
+            let  messages = this.messages;
+            let date = this.date;
             setTimeout(() => {
                 contacts[indexContact].messages.push({
                     date: currentDate,
                     text : 'Ok',
                     status: 'received'
                 })
-              
             },3000)
         }       
     },
+    computed: {
+        filterNames: function(){
+            return this.contacts.filter((element)=>{
+                return element.name.match(this.search.charAt(0).toUpperCase() + this.search.slice(1));
+            });
+
+        }
+    }
     
 });

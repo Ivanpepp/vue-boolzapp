@@ -44,11 +44,11 @@
                                 <li class="my_box-search d-flex align-items-center ">
                                     <div class="input-group">
                                         <span class="input-group-text" id="search-icon"><i class="fas fa-search"></i></span>
-                                        <input @keyup.enter="myFunction()" id="input-search" type="text" class="mt-2 mb-2" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input  @keyup.enter="filterNames" v-model='search' id="input-search" type="text" class="mt-2 mb-2" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                                     </div>
                                 </li>
                                 <ul id="my-ul">
-                                        <li class="my_box d-flex align-items-center"  v-for='(element, index) in contacts' :class="{'active' : index == indexContact}" @click='boxSelector(index)'>
+                                        <li class="my_box d-flex align-items-center"  v-for='(element, index) in filterNames' :class="{'active' : index == indexContact}" @click='boxSelector(index)'>
                                             
                                                 <img :src="logoExtractor(index)" alt="avatar semple" class="user-logo">
                                                 <div class="info-wrapper d-flex justify-content-between">
