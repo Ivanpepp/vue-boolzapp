@@ -47,10 +47,15 @@
                                         <input id="input-search" type="text" class="mt-2 mb-2" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                                     </div>
                                 </li>
-                                <li class="my_box d-flex align-items-center"  v-for='(element, index) in contacts'>
+                                <li class="my_box d-flex align-items-center"  v-for='(element, index) in contacts' :class="{'active' : index == indexContact}" @click='boxSelector(index)'>
                                     <img :src="logoExtractor(index)" alt="avatar semple" class="user-logo">
-                                    <div class="info-wrapper ">
-                                        <div class="">{{element.name}}</div>
+                                    <div class="info-wrapper d-flex justify-content-between">
+                                        <div>
+                                            <div class="">{{element.name}}</div>
+                                            <div class="under-text">{{takeHalf(element)}}</div>
+                                        </div>
+                                        
+                                        <div class="under-text">{{contacts[indexContact].messages[lastMessage()].date}}</div>
                                     </div>
                                 </li>  
                             </ul>
@@ -58,10 +63,12 @@
                         <!-- chat side -->
                         <div id="chat-side" class="col-8 p-0">
                             <div class="my_box d-flex align-items-center my_bg-gray">
-                                <img src="img/avatar_1.jpg" alt="avatar semple" class="user-logo">
+                                <img :src="'img/avatar' + contacts[indexContact].avatar + '.jpg'" alt="avatar semple" class="user-logo">
                                 <div class="info-wrapper">
-                                    <div class="">Michele</div>
-                                    <div class="under-text">Ultimio accesso oggi alle</div>
+                                    <div class="">{{contacts[indexContact].name}}</div>
+                                    <div class="under-text">
+                                        Ultimio accesso oggi alle <span>  {{contacts[indexContact].messages[lastMessage()].date}} </span>
+                                     </div>
                                 </div>
                                 <div class="cta ms-auto">
                                     <i class="fas fa-circle-notch px-3"></i>
@@ -70,7 +77,16 @@
                                 </div>
                             </div>
                             <div id="chat">
-
+                                
+                                    <ul class=" my-5 py-5 px-5 mx-5 flex-column d-flex" >
+                                        <li class="mb-2 " :class="{ 'm-sent': message.status == 'sent', 'm-received': message.status == 'received' }" 
+                                        v-for='(message, index) in contacts[indexContact].messages'>
+                                            <div class="mb-1">{{message.text}}</div>
+                                            <div class="under-text text-end">{{message.date}}</div>
+                                        </li>
+                                    </ul>
+                              
+                                
                             </div>
                             <div id="bottom-chat" class="col-12 d-flex justify-content-around align-items-center fs-4">
                                 <div class="col-1 text-center">
