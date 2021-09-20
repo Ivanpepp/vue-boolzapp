@@ -44,20 +44,24 @@
                                 <li class="my_box-search d-flex align-items-center ">
                                     <div class="input-group">
                                         <span class="input-group-text" id="search-icon"><i class="fas fa-search"></i></span>
-                                        <input id="input-search" type="text" class="mt-2 mb-2" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input @keyup.enter="myFunction()" id="input-search" type="text" class="mt-2 mb-2" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
                                     </div>
                                 </li>
-                                <li class="my_box d-flex align-items-center"  v-for='(element, index) in contacts' :class="{'active' : index == indexContact}" @click='boxSelector(index)'>
-                                    <img :src="logoExtractor(index)" alt="avatar semple" class="user-logo">
-                                    <div class="info-wrapper d-flex justify-content-between">
-                                        <div>
-                                            <div class="">{{element.name}}</div>
-                                            <div class="under-text">{{takeHalf(element)}}</div>
-                                        </div>
-                                        
-                                        <div class="under-text">{{contacts[indexContact].messages[lastMessage()].date}}</div>
-                                    </div>
-                                </li>  
+                                <ul id="my-ul">
+                                        <li class="my_box d-flex align-items-center"  v-for='(element, index) in contacts' :class="{'active' : index == indexContact}" @click='boxSelector(index)'>
+                                            
+                                                <img :src="logoExtractor(index)" alt="avatar semple" class="user-logo">
+                                                <div class="info-wrapper d-flex justify-content-between">
+                                                    <div>
+                                                        <div class="">{{element.name}}</div>
+                                                        <div class="under-text">{{takeHalf(element)}}</div>
+                                                    </div>
+                                                    
+                                                    <div class="under-text">{{contacts[indexContact].messages[lastMessage()].date}}</div>
+                                                </div>
+                                           
+                                        </li>  
+                                </ul>
                             </ul>
                         </div>
                         <!-- chat side -->
@@ -93,7 +97,7 @@
                                     <i class="far fa-smile"></i>
                                 </div>
                                 <div class="col">
-                                    <input id="input-chat" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Scrivi un messaggio">
+                                    <input v-model='newMessage' @keyup.enter='messageAdder()' id="input-chat" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Scrivi un messaggio">
                                 </div>
                                 <div class="col-1 text-center">
                                     <i class="fas fa-microphone"></i>

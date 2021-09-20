@@ -86,16 +86,87 @@ let app = new Vue({
                     }
                 ],
             },
+           
         ],
-       
-       
+        indexContact: 0,
+        newMessage: '',
+        
     },
     methods : {
 
         logoExtractor: function(index){
             return `img/avatar${this.contacts[index].avatar}.jpg`;
-        }
+        },
+        boxSelector: function(indexElement){
+            this.indexContact = indexElement;
+        },
+        lastMessage: function(){
+            let indexDate =0;
+            indexDate =  this.contacts[this.indexContact].messages.length -1;
+                if (this.contacts[this.indexContact].messages[indexDate].status == 'sent'){
+                    indexDate--;
+                }
+                return indexDate;
+        },
+        takeHalf: function(element){
+            let index =0;
+            index =  element.messages.length -1;
+            let s = '' ;
+            s = element.messages[index].text;    
+            let piece = Math.floor(s.length * 0.75);
+            s = s.slice(0, piece) + '...' ;
+            return s;
+        },
+        myFunction: function() {
+            let input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("input-search");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("my-ul");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("div")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        },
+       
+        messageAdder :  function(){
+            let d = new Date();
+            let currentDay= d.getDate();
+            let currentMonth = d.getMonth() +1;
+            let currentYear = d.getFullYear();
+            let currentHour= d.getUTCHours();
+            let currentMinut=d.getMinutes();
+            let currentSeconds=d.getSeconds();
+            let currentDate= `${currentDay}/${currentMonth}/${currentYear} ${currentHour}:${currentMinut}:${currentSeconds}`;
+            
+            if(this.newMessage.trim('').length > 0){
+                
+                this.contacts[this.indexContact].messages.push({
+                    date: currentDate,
+                    text : this.newMessage,
+                    status: 'sent'
+                })
+                this.newMessage='';
+            };
+            
+            let  contacts = this.contacts;
+            let  indexContact = this.indexContact;
+            let    messages = this.messages;
+
+            setTimeout(() => {
+                contacts[indexContact].messages.push({
+                    date: currentDate,
+                    text : 'Ok',
+                    status: 'received'
+                })
+              
+            },3000)
+        }       
     },
     
-})
-
+});

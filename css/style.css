@@ -40,13 +40,17 @@ ul > li.my_box:hover{
     padding: 10px;
     width: 70px;
 }
+.info-wrapper{
+    width: 80%;
+
+}
 .cta{
     color: #b1b1b1;
     font-size: 1.2rem;
 }
 .under-text{
-    color: #000000;
-    font-size: 0.8rem;
+    color: rgb(168, 168, 168);
+    font-size: 0.6rem;
 }
 .my_bg-gray{
     background-color: #eaeaea;
@@ -57,6 +61,22 @@ ul > li.my_box:hover{
     padding: 10px;
     border-radius: 50%;
     font-size: 1.5rem;
+}
+.active{
+    background-color: #e9ebeb;
+}
+.m-sent{
+    padding: 10px;
+    background-color: #d5f9ba;
+    width: 350px;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+.m-received{
+    padding: 10px;
+    background-color: white;
+    width: 350px;
+    border-radius: 10px;
 }
 #bg-header{
     height: 15vh;
@@ -77,6 +97,7 @@ ul > li.my_box:hover{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    min-width: 1200px;
 }
 #user-side{
     height: 100%;
@@ -111,7 +132,6 @@ ul > li.my_box:hover{
     height: calc(100% - 140px);
     background-image: url(../img/mine.jpg);
     background-position: center;
-    background-repeat: repeat;
     overflow: auto;
 }
 #bottom-chat{
