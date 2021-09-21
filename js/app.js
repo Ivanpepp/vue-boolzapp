@@ -102,8 +102,8 @@ let app = new Vue({
         },
         lastMessage: function(){
             let indexDate =0;
-            indexDate =  this.contacts[this.indexContact].messages.length -1;
-                if (this.contacts[this.indexContact].messages[indexDate].status == 'sent'){
+            indexDate =  this.filterNames[this.indexContact].messages.length -1;
+                if (this.filterNames[this.indexContact].messages[indexDate].status == 'sent'){
                     indexDate--;
                 }
                 return indexDate;
@@ -130,7 +130,7 @@ let app = new Vue({
             
             if(this.newMessage.trim('').length > 0){
                 
-                this.contacts[this.indexContact].messages.push({
+                this.filterNames[this.indexContact].messages.push({
                     date: currentDate,
                     text : this.newMessage,
                     status: 'sent'
@@ -138,12 +138,12 @@ let app = new Vue({
                 this.newMessage='';
             };
             
-            let  contacts = this.contacts;
+            let  filter = this.filterNames;
             let  indexContact = this.indexContact;
             let  messages = this.messages;
             let date = this.date;
             setTimeout(() => {
-                contacts[indexContact].messages.push({
+                filter[indexContact].messages.push({
                     date: currentDate,
                     text : 'Ok',
                     status: 'received'
