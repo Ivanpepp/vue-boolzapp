@@ -67,11 +67,11 @@
                         <!-- chat side -->
                         <div id="chat-side" class="col-8 p-0">
                             <div class="my_box d-flex align-items-center my_bg-gray">
-                                <img :src="'img/avatar' + contacts[indexContact].avatar + '.jpg'" alt="avatar semple" class="user-logo">
+                                <img :src="'img/avatar' + filterNames[indexContact].avatar + '.jpg'" alt="avatar semple" class="user-logo">
                                 <div class="info-wrapper">
-                                    <div class="">{{contacts[indexContact].name}}</div>
+                                    <div class="">{{filterNames[indexContact].name}}</div>
                                     <div class="under-text">
-                                        Ultimio accesso oggi alle <span>  {{contacts[indexContact].messages[lastMessage()].date}} </span>
+                                        Ultimio accesso oggi alle <span>  {{filterNames[indexContact].messages[lastMessage()].date}} </span>
                                      </div>
                                 </div>
                                 <div class="cta ms-auto">
@@ -84,7 +84,7 @@
                                 
                                     <ul class=" my-5 py-5 px-5 mx-5 flex-column d-flex" >
                                         <li class="mb-2 " :class="{ 'm-sent': message.status == 'sent', 'm-received': message.status == 'received' }" 
-                                        v-for='(message, index) in contacts[indexContact].messages'>
+                                        v-for='(message, index) in filterNames[indexContact].messages'>
                                             <div class="mb-1">{{message.text}}</div>
                                             <div class="under-text text-end">{{message.date}}</div>
                                         </li>

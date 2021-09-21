@@ -95,7 +95,7 @@ let app = new Vue({
     methods : {
 
         logoExtractor: function(index){
-            return `img/avatar${this.contacts[index].avatar}.jpg`;
+            return `img/avatar${this.filterNames[index].avatar}.jpg`;
         },
         boxSelector: function(indexElement){
             this.indexContact = indexElement;
@@ -154,7 +154,7 @@ let app = new Vue({
     computed: {
         filterNames: function(){
             return this.contacts.filter((element)=>{
-                return element.name.match(this.search.charAt(0).toUpperCase() + this.search.slice(1));
+                return element.name.match   (this.search.charAt(0).toUpperCase() + this.search.slice(1) );
             });
 
         }
