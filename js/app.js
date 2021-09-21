@@ -154,7 +154,7 @@ let app = new Vue({
     computed: {
         filterNames: function(){
             return this.contacts.filter((element)=>{
-                return element.name.match   (this.search.charAt(0).toUpperCase() + this.search.slice(1) );
+                return element.name.toLowerCase().match(this.search.toLowerCase());
             });
 
         }
