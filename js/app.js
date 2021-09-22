@@ -90,7 +90,9 @@ let app = new Vue({
         ],
         indexContact: 0,
         newMessage: '',
-        search: ''
+        search: '',
+        popUp : false
+        
     },
     methods : {
 
@@ -111,7 +113,7 @@ let app = new Vue({
         takeHalf: function(element){
             let index =0;
             index =  element.messages.length -1;
-            let s = '' ;
+            let s = '';
             s = element.messages[index].text;    
             let piece = Math.floor(s.length * 0.75);
             s = s.slice(0, piece) + '...' ;
@@ -144,12 +146,19 @@ let app = new Vue({
             let date = this.date;
             setTimeout(() => {
                 filter[indexContact].messages.push({
-                    date: currentDate,
                     text : 'Ok',
                     status: 'received'
                 })
             },3000)
-        }       
+        },
+
+        deleteMessage: function(index){   
+            if (index > -1) {
+                this.filterNames[this.indexContact].messages.splice(index, 1);
+            }
+            return this.filterNames[this.indexContact].messages;
+        },
+      
     },
     computed: {
         filterNames: function(){

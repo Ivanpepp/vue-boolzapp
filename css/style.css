@@ -47,6 +47,7 @@ ul > li.my_box:hover{
 .cta{
     color: #b1b1b1;
     font-size: 1.2rem;
+    width: 30%;
 }
 .under-text{
     color: rgb(168, 168, 168);
@@ -71,13 +72,16 @@ ul > li.my_box:hover{
     width: 350px;
     border-radius: 10px;
     align-self: flex-end;
+    min-height: 70px;
 }
 .m-received{
     padding: 10px;
     background-color: white;
     width: 350px;
     border-radius: 10px;
+    
 }
+
 #bg-header{
     height: 15vh;
     background-color: #009688;
@@ -105,8 +109,17 @@ ul > li.my_box:hover{
 }
 #chat-side{
     height: 100%;
+    position: relative;
 }
-
+#pop-up{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+   
+    background-color: white;
+}
 #app-header{
     background-color: #eaeaea;
 }
@@ -133,6 +146,7 @@ ul > li.my_box:hover{
     background-image: url(../img/mine.jpg);
     background-position: center;
     overflow: auto;
+    
 }
 #bottom-chat{
     height: 60px;
